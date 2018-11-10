@@ -16,8 +16,8 @@
         /* display: inline-block; */
         vertical-align: top;
         position: fixed;
-        margin-top: -736px;
-        margin-left: 990px;
+        margin-top: -1270px;
+        margin-left: 930px;
       }
 
       #menu {
@@ -27,12 +27,23 @@
       }
 
       #reviews {
-        margin-top: 60px;
-        margin-left: 180px;
+        margin: 60px 139px 30px 0px;
         width: 100%;
       }
 
       #header-picture {
+        width: 100%;
+        margin-right: 0px;
+        height: 400px;
+        object-fit: fill;
+      }
+
+      #pic-graph {
+        margin-left: 170px;
+        margin-top: 30px;
+      } 
+
+      #footer {
         width: 100%;
       }
 
@@ -41,11 +52,15 @@
 
 
 <body>
-    <img src='https://s3.us-east-2.amazonaws.com/header-opentable/Screen+Shot+2018-11-07+at+10.10.33+AM.png' id="header-picture"/>
+    <div className="pic-container">
+      <img src="https://s3.us-east-2.amazonaws.com/header-opentable2/Screen+Shot+2018-11-09+at+3.22.55+PM.png" id="header-picture"/>
+    </div>
     <div id="RestaurantInfo"></div>
+    <img src="https://s3.us-east-2.amazonaws.com/bundle-picsgraph/Screen+Shot+2018-11-07+at+10.30.55+AM.png" id="pic-graph"/>
     <div id="Reservation"></div>
     <div id="menu"></div>
     <div id="reviews"></div>
+    <img src="https://s3.us-east-2.amazonaws.com/footer-opentable/Screen+Shot+2018-11-09+at+3.48.44+PM.png" id="footer" />
 </body>
 
   <script src="https://s3-us-west-1.amazonaws.com/restaurant-info/restaurantinfo/bundle.js"></script>

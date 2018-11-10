@@ -36,26 +36,39 @@ app.get('/restaurant/profile/:id', (req, res) => {
 });
 
 //get reservations
-app.get('/reservations/timesBookedToday/:id', (req, res) => {
-  var getReservationInfo = {
-    host: 'localhost',
-    port: 3002,
-    path: `/reservations/timesBookedToday/${req.params.id}`,
-    method: 'GET',
-    headers: {
-      accept: 'application/json'
-    }
-  };
-  console.log('Start');
-  var reservationResults = http.request(getReservationInfo, (result) => {
-    result.on('data', (data) => {
-      res.status(200).send(data);
-    }).on('error', (err) => {
-      res.status(500).send("reservations not found");
-    });
+// app.get('/reservations/timesBookedToday/:id', (req, res) => {
+//   var getReservationInfo = {
+//     host: 'localhost',
+//     port: 3002,
+//     path: `/reservations/timesBookedToday/${req.params.id}`,
+//     method: 'GET',
+//     headers: {
+//       accept: 'application/json'
+//     }
+//   };
+//   console.log('Start');
+//   var reservationResults = http.request(getReservationInfo, (result) => {
+//     result.on('data', (data) => {
+//       res.status(200).send(data);
+//     }).on('error', (err) => {
+//       res.status(500).send("reservations not found");
+//     });
+//   });
+//   reservationResults.end();
+// });
+app.get('/reservations/timesBookedToday/:restaurant_id', (req, res) => {
+  request(`http://localhost:3002${req.originalUrl}`, (err, response, body) => {
+    if (err) throw err;
+    res.send(body);
   });
-  reservationResults.end();
-});
+ });
+ 
+ app.get('/reservations/inventory', (req, res) => {
+  request(`http://localhost:3002${req.originalUrl}`, (err, response, body) => {
+    if (err) throw err;
+    res.send(body);
+  });
+ });
 
 //get menu
 app.get('/restaurants/:id/menu', (req, res) => {
